@@ -1,0 +1,44 @@
+﻿@page
+@model WebApplication.Pages.WorkersListModel
+@{
+}
+<h1>Workers</h1>
+
+<a asp-page="./Edit" class="btn btn-primary my-3 float-right">Add new worker</a>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th scope="col">First Name</th>
+			<th scope="col">Last Name</th>
+			<th scope="col">Personal Code</th>
+			<th scope="col">Birthday</th>
+			<th scope="col">Home address</th>
+			<th scope="col">Status</th>
+			<th scope="col"></th>
+		</tr>
+	</thead>
+	@foreach (var worker in Model.WorkersList) 
+	{
+		<tr>
+			<td class="align-middle">@worker.FirstName</td>
+			<td class="align-middle">@worker.LastName</td>
+			<td class="align-middle">@worker.PersonalCode</td>
+			<td class="align-middle">@worker.Birthday</td>
+			<td class="align-middle">@worker.HomeAddress</td>
+			<td class="align-middle">@worker.WorkerStatus</td>
+			<td>
+				<a class = "btn btn-warning"
+					asp-page = "./Edit"
+				    asp-route-id = "@worker.Id">
+				    Edit
+				</a>
+				<a class = "btn btn-danger"
+				   asp-page= "./Delete"
+				   asp-route-id = "@worker.Id">
+				   Delete
+				</a>
+			</td>
+		</tr>
+	}
+</table>

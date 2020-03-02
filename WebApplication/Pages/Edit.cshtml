@@ -1,0 +1,35 @@
+﻿@page "{id:int?}"
+@model WebApplication.Pages.EditModel
+@{
+}
+
+<h2>Editting @Model.Worker.FirstName @Model.Worker.LastName</h2>
+
+<form method="post">
+	<div class="form-group">
+		<label asp-for="Worker.FirstName"></label>
+		<input asp-for="Worker.FirstName" class="form-control" />
+		<span class="text-danger" asp-validation-for="Worker.FirstName"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Worker.LastName"></label>
+		<input asp-for="Worker.LastName" class="form-control" />
+		<span class="text-danger" asp-validation-for="Worker.LastName"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Worker.PersonalCode"></label>
+		<input asp-for="Worker.PersonalCode" class="form-control" />
+		<span class="text-danger" asp-validation-for="Worker.PersonalCode"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Worker.Birthday"></label>
+		<input asp-for="Worker.Birthday" class="form-control" />
+		<span class="text-danger" asp-validation-for="Worker.Birthday"></span>
+	</div>
+	<div class="form-group">
+		<label asp-for="Worker.HomeAddress"></label>
+		<input asp-for="Worker.HomeAddress" class="form-control" />
+		<span class="text-danger" asp-validation-for="Worker.HomeAddress"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Save</button>
+</form>
