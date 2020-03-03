@@ -4,13 +4,11 @@
 }
 <h1>Workers</h1>
 
-<form method="get">
-	<div class="col-md-3 mb-3">
-		
-		<label>Filter</label>
+<form method="get" class="form-inline">
+	<div class="form-group row">
+		<label class="col-sm-2 col-form-label">Filter</label>
 		<select class="form-control" asp-for="SelectedOption"
 				asp-items="Model.Filter"></select>
-		
 		<button type="submit" class="btn btn-info my-3">Search</button>
 	</div>
 </form>
