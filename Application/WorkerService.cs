@@ -56,10 +56,21 @@ namespace Application
             await _context.SaveChangesAsync();
         }
 
-        public async Task<IEnumerable<WorkerInfo>> GetAllWorkers()
+        public async Task<IEnumerable<WorkerInfo>> GetAllWorkers(FilterOptions filter)
         {
-            var workers = await _context.WorkersList.Where(w => w.WorkerStatus == Status.Active).ToListAsync();
-            return workers;
+            if (filter == FilterOptions.Active)
+            {
+
+                return await _context.WorkersList.Where(f => f.WorkerStatus == Status.Active).ToListAsync();
+            }
+            else if (filter == FilterOptions.Inactive)
+            {
+                return await _context.WorkersList.Where(f => f.WorkerStatus == Status.Inactive).ToListAsync();
+            }
+            else
+            {
+                return await _context.WorkersList.ToListAsync();
+            }
         }
 
         public async Task<WorkerInfo> GetWorker(int id)

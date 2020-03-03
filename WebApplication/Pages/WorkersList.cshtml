@@ -4,6 +4,17 @@
 }
 <h1>Workers</h1>
 
+<form method="get">
+	<div class="col-md-3 mb-3">
+		
+		<label>Filter</label>
+		<select class="form-control" asp-for="SelectedOption"
+				asp-items="Model.Filter"></select>
+		
+		<button type="submit" class="btn btn-info my-3">Search</button>
+	</div>
+</form>
+
 <a asp-page="./Edit" class="btn btn-primary my-3 float-right">Add new worker</a>
 
 <table class="table table-hover">
@@ -18,7 +29,7 @@
 			<th scope="col"></th>
 		</tr>
 	</thead>
-	@foreach (var worker in Model.WorkersList) 
+	@foreach (var worker in Model.WorkersList)
 	{
 		<tr>
 			<td class="align-middle">@worker.FirstName</td>
@@ -28,15 +39,15 @@
 			<td class="align-middle">@worker.HomeAddress</td>
 			<td class="align-middle">@worker.WorkerStatus</td>
 			<td>
-				<a class = "btn btn-warning"
-					asp-page = "./Edit"
-				    asp-route-id = "@worker.Id">
-				    Edit
+				<a class="btn btn-warning"
+				   asp-page="./Edit"
+				   asp-route-id="@worker.Id">
+					Edit
 				</a>
-				<a class = "btn btn-danger"
-				   asp-page= "./Delete"
-				   asp-route-id = "@worker.Id">
-				   Delete
+				<a class="btn btn-danger"
+				   asp-page="./Delete"
+				   asp-route-id="@worker.Id">
+					Delete
 				</a>
 			</td>
 		</tr>
